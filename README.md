@@ -1,24 +1,46 @@
-# README
+# 🚗 Driver Management Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Ruby on Rails web application for logging driver clock-in/out times and managing tasks efficiently.
 
-Things you may want to cover:
+## Features
 
-* Ruby version
+- ⏰ **Driver Clock-In/Out Tracking**: Monitors and records driver working hours.
+- 📋 **Task Management**: Create, assign, and track tasks.
 
-* System dependencies
+## Getting Started
 
-* Configuration
+### 🛠️ Requirements
 
-* Database creation
+Ensure you have the following installed:
 
-* Database initialization
+- **Ruby**: Version `2.7.0` or higher. Check with:
 
-* How to run the test suite
+  ```bash
+  ruby -v
 
-* Services (job queues, cache servers, search engines, etc.)
+📦 Installation
 
-* Deployment instructions
+  Clone the Repository
+  git clone https://github.com/yourusername/driver-management-app.git
+  cd driver-management-app
 
-* ...
+  Install Dependencies
+  bundle install  
+  rails db:create
+  rails db:seed
+  
+🧪 Running Tests
+    rails test
+
+⚙️ Services
+
+🚀 Deployment
+  heroku create
+  git push heroku main
+  heroku run rails db:migrate
+  heroku config:set RAILS_ENV=production
+
+
+
+
+
