@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Driver Dashboard</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+</head>
+<body>
+  <div class="container mt-4">
+    <h1 class="mb-4">Driver Dashboard</h1>
+
+    <!-- Display current shift information in a card -->
+    <div class="card mb-4">
+      <div class="card-header">
+        Current Shift
+      </div>
+      <div class="card-body">
+        <% if current_driver.current_shift %>
+          <p>Started at <%= current_driver.current_shift.clock_in %></p>
+          <%= button_to 'Clock Out', drivers_shift_path(current_driver.current_shift), method: :patch, params: { shift: { clock_out: Time.current } }, class: 'btn btn-danger' %>
+        <% else %>
+          <p>No active shift.</p>
+          <%= button_to 'Clock In', drivers_shifts_path, method: :post, params: { shift: { clock_in: Time.current } }, class: 'btn btn-success' %>
+        <% end %>
+      </div>
+    </div>
+
+    <!-- Display tasks in a card -->
+    <div class="card">
+      <div class="card-header">
+        My Tasks
+      </div>
+      <div class="card-body">
+        <ul class="list-group">
+          <% @tasks.each do |task| %>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <%= link_to task.title, drivers_task_path(task), class: 'text-decoration-none' %>
+              <div>
+                <%= task.completed ? "Completed" : "Not Completed" %>
+<%= button_to task.completed ? 'Mark as Incomplete' : 'Mark as Complete', drivers_toggle_task_completion_path(task), method: :patch, class: 'btn btn-sm btn-secondary ms-2' %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tasks</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+</head>
+<body>
+  <h1>My Tasks</h1>
+
+  <!-- Task list container for real-time updates -->
+  <ul id="tasks">
+    <%= turbo_stream_from "tasks" %>
+    <% @tasks.each do |task| %>
+      <%= render partial: "drivers/tasks/task", locals: { task: task } %>
+    <% end %>
+  </ul>
+</body>
+</html>

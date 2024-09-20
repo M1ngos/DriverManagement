@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Login</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      outline: 0;
+      font-size: 100%;
+      vertical-align: baseline;
+      background: transparent;
+    }
+
+    body, html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .background-radial-gradient {
+      background-color: hsl(218, 41%, 15%);
+      background-image: radial-gradient(650px circle at 0% 0%,
+          hsl(218, 41%, 35%) 15%,
+          hsl(218, 41%, 30%) 35%,
+          hsl(218, 41%, 20%) 75%,
+          hsl(218, 41%, 19%) 80%,
+          transparent 100%),
+        radial-gradient(1250px circle at 100% 100%,
+          hsl(218, 41%, 45%) 15%,
+          hsl(218, 41%, 30%) 35%,
+          hsl(218, 41%, 20%) 75%,
+          hsl(218, 41%, 19%) 80%,
+          transparent 100%);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin: 0;
+    }
+
+    .card {
+      background-color: hsl(218, 41%, 15%) !important;
+      backdrop-filter: saturate(200%) blur(25px);
+      border: none;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .btn-custom {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 16px; /* Decreased padding */
+      margin: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      width: 70%; /* Increase width of the button */
+    }
+
+    .btn-custom:hover {
+      background-color: #0056b3;
+    }
+
+    .text-link {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .text-link:hover {
+      text-decoration: underline;
+    }
+
+    .form-control {
+      background-color: hsl(218, 41%, 20%) !important;
+      border: 1px solid hsl(218, 41%, 30%) !important;
+      color: white; /* Make input text white */
+      height: 40px; /* Decrease height of input fields */
+      font-size: 14px; /* Decrease font size of input fields */
+      width: 100%; /* Ensure input fields take full width */
+    }
+
+    /* Placeholder text color white */
+    ::placeholder {
+      color: white;
+      opacity: 1; /* Full opacity */
+    }
+
+    /* Ensure white placeholder text specifically for admin inputs */
+    #admin_email::placeholder,
+    #admin_password::placeholder {
+      color: white;
+    }
+
+    /* Keep input text and placeholder white when focused */
+    .form-control:focus {
+      background-color: hsl(218, 41%, 20%) !important;
+      color: white !important; /* Keep input text white when focused */
+    }
+
+    .form-control:focus::placeholder {
+      color: white !important; /* Keep placeholder text white when focused */
+    }
+
+    .form-label {
+      color: white; /* Make form labels white */
+      font-size: 14px; /* Decrease font size of labels */
+    }
+
+    .mb-3 {
+      margin-bottom: 1rem; /* Adjust spacing between fields */
+      margin-top: 1rem;
+    }
+
+    .mt-4 {
+      margin-top: 2rem; /* Add space between text and fields */
+    }
+
+    .card h1 {
+      font-size: 2rem; /* Adjust title size */
+      color: white; /* Make title text white */
+    }
+
+    .card p {
+      font-size: 1rem; /* Adjust paragraph size */
+      color: white; /* Make paragraph text white */
+    }
+    
+  </style>
+</head>
+
+<body>
+  <div class="background-radial-gradient">
+    <div class="card">
+      <h1 class="display-4 fw-bold mb-4" style="color: hsl(218, 81%, 95%)">Portal do Gestor</h1>
+      <p class="lead mb-4" style="color: hsl(218, 81%, 85%)">Faça login para gerir os motoristas, tarefas e clientes.</p>
+
+      <!-- Admin Login Form -->
+      <form action="<%= admin_session_path %>" method="post">
+        <!-- Include CSRF token -->
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+        <div class="mb-3">
+          <input type="email" name="admin[email]" id="admin_email" class="form-control" placeholder="Email" required>
+        </div>
+
+        <div class="mb-3">
+          <input type="password" name="admin[password]" id="admin_password" class="form-control" placeholder="Password" required>
+        </div>
+
+        <button type="submit" class="btn btn-custom w-100 mb-3">Log in</button>
+      </form>
+
+      <!-- Forgot password link -->
+      <p class="text-link">
+        <%= link_to 'Esqueceu-se da password?', new_admin_password_path, class: 'text-link' %>
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>

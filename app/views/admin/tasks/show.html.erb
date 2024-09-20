@@ -1,0 +1,19 @@
+<h1>Task Details</h1>
+<p>
+  <strong>Title:</strong>
+  <%= @task.title %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @task.description %>
+</p>
+<p>
+  <strong>Driver:</strong>
+  <%= @task.driver.email if @task.driver %>
+</p>
+<p>
+  <strong>Client:</strong>
+  <%= @task.client.present? ? @task.client.name : 'No Client' %>
+</p>
+<%= link_to 'Edit', edit_admin_task_path(@task) %> |
+<%= link_to 'Back to List', admin_tasks_path %>

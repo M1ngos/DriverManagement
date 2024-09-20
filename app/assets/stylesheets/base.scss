@@ -1,0 +1,93 @@
+// Base Styles
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+// Body and HTML
+body, html {
+height: 100%;
+margin: 0;
+font-family: 'Roboto', sans-serif;
+color: #020202; // Default text color
+}
+
+// Background and card styles
+.background-radial-gradient {
+background-color: hsl(218, 41%, 15%);
+background-image: radial-gradient(650px circle at 0% 0%,
+    hsl(218, 41%, 35%) 15%,
+    hsl(218, 41%, 30%) 35%,
+    hsl(218, 41%, 20%) 75%,
+    hsl(218, 41%, 19%) 80%,
+    transparent 100%),
+  radial-gradient(1250px circle at 100% 100%,
+    hsl(218, 41%, 45%) 15%,
+    hsl(218, 41%, 30%) 35%,
+    hsl(218, 41%, 20%) 75%,
+    hsl(218, 41%, 19%) 80%,
+    transparent 100%);
+}
+
+// Card styling
+.card {
+background-color: hsla(0, 0%, 100%, 0.9) !important;
+backdrop-filter: saturate(200%) blur(25px);
+border: none;
+border-radius: 12px;
+padding: 20px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+// Buttons
+.btn-custom {
+background-color: #007bff;
+color: white;
+border: none;
+padding: 10px 20px;
+font-size: 16px;
+margin: 10px;
+border-radius: 8px;
+cursor: pointer;
+text-decoration: none;
+}
+
+.btn-custom:hover {
+background-color: #0056b3;
+}
+
+// Footer
+.footer {
+position: absolute;
+bottom: 0;
+width: 100%;
+text-align: center;
+padding: 10px;
+background-color: hsl(218, 41%, 15%);
+color: white;
+}
+
+
+.alert {
+margin: 0 !important; /* Override Bootstrap default margin */
+}
+
+
+.alert-dismissible {
+margin-bottom: 0; /* Prevent extra margin below the flash message */
+}
+
+.container {
+padding-top: 0;
+margin-top: 0;
+}
+
+/* Optional: Add smooth transition for closing flash messages */
+.alert {
+transition: opacity 0.3s ease-out, margin 0.3s ease-out; /* Smooth fade and collapse */
+}
