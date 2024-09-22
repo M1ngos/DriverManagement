@@ -13,15 +13,17 @@ A Ruby on Rails web application for logging driver clock-in/out times and managi
 
 Ensure you have the following installed:
 
-- **Ruby**: Version `2.7.0` or higher. Check with:
+- **Ruby**: Version `ruby 3.3.5` or higher. Check with:
 
   ```bash
   ruby -v
 
+  Rails 7.2.1
+  Node.js  v20.17.0
 📦 Installation
 
   Clone the Repository
-  git clone https://github.com/yourusername/driver-management-app.git
+  git clone https://github.com/M1ngos/driver-management-app.git
   cd driver-management-app
 
   Install Dependencies

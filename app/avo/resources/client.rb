@@ -7,13 +7,11 @@ class Avo::Resources::Client < Avo::BaseResource
   # }
 
   def fields
-    field :id, as: :idlo
+    field :id, as: :id
     field :name, as: :text
     field :contact_info, as: :text
     field :address, as: :text, optional: true
     field :tasks, as: :has_many
     field :drivers, as: :has_many
-    field :created_at, as: :date_time
-    field :updated_at, as: :date_time
   end
 end
