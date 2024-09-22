@@ -13,11 +13,13 @@
     end
 
     def update
-      # Update an existing shift with clock_out time
       @shift = current_driver.shifts.find(params[:id])
       if @shift.update(shift_params)
-        redirect_to driver_dashboard_path, notice: "Clocked out successfully."
+        extra_pay = @shift.extra_pay
+        Rails.logger.debug "Clocked out successfully. Extra Pay: #{extra_pay}"
+        redirect_to driver_dashboard_path, notice: "Clocked out successfully. Extra Pay: #{extra_pay}"
       else
+        Rails.logger.debug "Failed to clock out. Errors: #{@shift&.errors.full_messages.join(", ")}"
         redirect_to driver_dashboard_path, alert: "Failed to clock out."
       end
     end
