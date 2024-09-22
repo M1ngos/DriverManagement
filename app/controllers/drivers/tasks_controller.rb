@@ -1,7 +1,6 @@
-# app/controllers/drivers/tasks_controller.rb
 class Drivers::TasksController < ApplicationController
   before_action :authenticate_driver!
-  before_action :set_task, only: [ :show, :update ]
+  before_action :set_task, only: [ :show, :update, :toggle_completion ]
 
   def index
     @tasks = current_driver.tasks
@@ -18,6 +17,12 @@ class Drivers::TasksController < ApplicationController
     end
   end
 
+  def toggle_completion
+    @task = Task.find(params[:id])
+    @task.update(completed: !@task.completed)
+    redirect_to driver_dashboard_path, notice: "Task status updated."
+  end
+
   private
 
   def set_task
@@ -26,11 +31,5 @@ class Drivers::TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:completed)
-  end
-
-  def toggle_completion
-    @task = Task.find(params[:id])
-    @task.update(completed: !@task.completed)
-    redirect_to drivers_dashboard_path, notice: "Task status updated."
   end
 end
