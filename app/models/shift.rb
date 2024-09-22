@@ -31,6 +31,7 @@ class Shift < ApplicationRecord
   end
 
   def extra_pay
-    extra_hours * EXTRA_HOURLY_RATE
+    return 0 unless total_hours > WORK_HOURS_LIMIT
+    (total_hours - WORK_HOURS_LIMIT) * EXTRA_HOURLY_RATE
   end
 end
