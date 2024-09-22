@@ -36,16 +36,16 @@ Avo.configure do |config|
   ## == Authorization ==
   # config.is_admin_method = :is_admin
   # config.is_developer_method = :is_developer
-  # config.authorization_methods = {
-  #   index: 'index?',
-  #   show: 'show?',
-  #   edit: 'edit?',
-  #   new: 'new?',
-  #   update: 'update?',
-  #   create: 'create?',
-  #   destroy: 'destroy?',
-  #   search: 'search?',
-  # }
+  config.authorization_methods = {
+     #   index: 'index?',
+     #   show: 'show?',
+     #   edit: 'edit?',
+     #   new: 'new?',
+     #   update: 'update?',
+     #   create: 'create?',
+     #   destroy: 'destroy?',
+     search: "avo_search"
+  }
   # config.raise_error_on_missing_policy = false
   config.authorization_client = nil
 
@@ -87,11 +87,11 @@ Avo.configure do |config|
    # config.cache_resource_filters = -> { current_user.cache_resource_filters? }
 
    ## == Turbo options ==
-   # config.turbo = -> do
-   #   {
-   #     instant_click: true
-   #   }
-   # end
+   config.turbo = -> do
+     {
+       instant_click: true
+     }
+   end
 
    ## == Logger ==
    # config.logger = -> {
@@ -110,7 +110,7 @@ Avo.configure do |config|
    ## == Customization ==
    config.app_name = "Driver Management"
   # config.timezone = 'UTC'
-  # config.currency = 'USD'
+  config.currency = "MZN"
   # config.hide_layout_when_printing = false
   # config.full_width_container = false
   # config.full_width_index_view = false

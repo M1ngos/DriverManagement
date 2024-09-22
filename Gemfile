@@ -67,3 +67,5 @@ gem "sassc-rails"
 gem "avo", ">= 3.2"
 
 gem "actioncable"
+
+gem "ransack"
