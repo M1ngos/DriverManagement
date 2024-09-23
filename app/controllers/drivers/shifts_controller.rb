@@ -14,10 +14,11 @@
 
     def update
       @shift = current_driver.shifts.find(params[:id])
-      if @shift.update(shift_params)
-        extra_pay = @shift.extra_pay
+      extra_pay = @shift.extra_pay
+
+      if @shift.update(shift_params.merge(extra_pay: extra_pay))
         Rails.logger.debug "Clocked out successfully. Extra Pay: #{extra_pay}"
-        redirect_to driver_dashboard_path, notice: "Clocked out successfully. Extra Pay: #{extra_pay}"
+        redirect_to driver_dashboard_path, notice: "Clocked out successfully. Extra Pay: #{extra_pay} MZN"
       else
         Rails.logger.debug "Failed to clock out. Errors: #{@shift&.errors.full_messages.join(", ")}"
         redirect_to driver_dashboard_path, alert: "Failed to clock out."
