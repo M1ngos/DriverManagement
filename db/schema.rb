@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_22_174001) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_23_025653) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -79,6 +79,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_22_174001) do
     t.datetime "clock_out"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "extra_pay", precision: 10, scale: 2, default: "0.0"
     t.index ["driver_id"], name: "index_shifts_on_driver_id"
   end
 
