@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  mount Avo::Engine, at: Avo.configuration.root_path
+  mount RailsAdmin::Engine => "/admin", as: "rails_admin"
+  # mount Avo::Engine, at: Avo.configuration.root_path
   get "admin_dashboard/index"
   get "driver_dashboard/index"
   # Public homepage

@@ -69,3 +69,6 @@ gem "avo", ">= 3.2"
 gem "actioncable"
 
 gem "ransack"
+
+gem "rails_admin"
+gem "cssbundling-rails"
